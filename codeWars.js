@@ -325,3 +325,40 @@ function neutralise(a = string, b = string) {
 // const quarterOf = (month) => {
 //   return Math.ceil(month / 3);
 // }
+
+// Проверка на заглавную букву в строке
+// function isIsogram(str){
+//   for (let i = 0; i < str.length; i++) {
+//     let result = str[i];
+//     if(str[i] === str[i].toUpperCase())
+//     return true
+//   }
+//     return false
+// }
+// console.log(isIsogram("privet"))
+
+
+// is Isogram //Повторяющиеся буквы последовательно в строке, 
+// и просто повторки: вернуть false, если нет повторяющихся символов вернуть True
+function isIsogram(str) {
+  //if empty return true.
+  if (str.isEmpty) {
+    return true;
+  } else {
+    // All lower case.
+    str = str.toLowerCase();
+  }
+  //split string into individual characters. 
+  var array = str.split(''); // разбиваем массив на элементы по одному
+  var sortedArr = array.slice().sort(); // сортируем массив
+
+  for (var i = 0; i < array.length; i++) {
+    //if duplicate is found return false.
+    if (sortedArr[i + 1] == sortedArr[i]) { // ищем одинаковые элементы
+      return false;
+    }
+  }
+  //else return true
+  return true;
+}
+console.log(isIsogram('asdsdgfgdafsg'))
